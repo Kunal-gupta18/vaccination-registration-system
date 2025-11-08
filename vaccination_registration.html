@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vaccination Registration</title>
+
+  <!-- Font Awesome, SweetAlert, and jsPDF -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="vaccination_registration.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="gov-header">
+    <img src="https://pbs.twimg.com/profile_images/894081630179962880/CufrCj0l_400x400.jpg" alt="logo">
+    <div>
+      <div style="font-size:14px;">Government of India</div>
+      <div style="font-size:18px; font-weight:700;">Vaccination Registration Portal</div>
+    </div>
+  </header>
+
+  <!-- Theme Toggle -->
+  <div class="toggle-switch">
+    <input type="checkbox" class="checkbox" id="themeToggle" onclick="toggleTheme()">
+    <label class="switch-label" for="themeToggle"><span class="slider"></span></label>
+  </div>
+
+  <div class="container">
+    <h2>Vaccination Registration</h2>
+
+    <!-- Registration Form -->
+    <form id="registrationForm">
+      <input type="text" id="name" class="input" placeholder="Full Name" required />
+      <input type="number" id="age" class="input" placeholder="Age" required />
+      <select id="gender" class="input" required>
+        <option value="" disabled selected>Select Gender</option>
+        <option>Male</option>
+        <option>Female</option>
+        <option>Other</option>
+      </select>
+      <input type="tel" id="phone" class="input" placeholder="Phone Number" required />
+      <input type="email" id="email" class="input" placeholder="Email" required />
+      <select id="vaccine" class="input" required>
+        <option value="" disabled selected>Select Vaccine</option>
+        <option>Covishield</option>
+        <option>Covaxin</option>
+        <option>Sputnik V</option>
+      </select>
+      <select id="slot" class="input" required>
+        <option value="" disabled selected>Select Time Slot</option>
+        <option>Morning (9 AM - 12 PM)</option>
+        <option>Afternoon (12 PM - 4 PM)</option>
+        <option>Evening (4 PM - 8 PM)</option>
+      </select>
+      <input type="date" id="date" class="input" required />
+      <select id="dose" class="input">
+        <option value="1st Dose">1st Dose</option>
+        <option value="2nd Dose">2nd Dose</option>
+        <option value="Booster">Booster</option>
+      </select>
+      <button type="submit">Register</button>
+    </form>
+
+    <h3>Search by Name or Email</h3>
+    <input type="text" id="searchBar" class="input" placeholder="Search..." />
+
+    <h3>Filter by Vaccine</h3>
+    <select id="filterVaccine" class="input">
+      <option value="all">All</option>
+      <option value="Covishield">Covishield</option>
+      <option value="Covaxin">Covaxin</option>
+      <option value="Sputnik V">Sputnik V</option>
+    </select>
+
+    <div id="output"></div>
+  </div>
+
+  <script src="vaccination_registration.js"></script>
+</body>
+</html>
